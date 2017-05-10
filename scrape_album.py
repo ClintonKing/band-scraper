@@ -4,23 +4,31 @@ import sys
 import requests
 import unicodecsv as csv
 
-from models.album import bandPage
+from models.band import bandPage
+from models.album import albumPage
 
-BANDCAMP_URL_END = '.bandcamp.com/music'
 
-def scrape_album(band):
-    with open('cache/albums.csv', 'wb') as f:
-        writer = csv.writer(f)
-        url = 'https://' + band + BANDCAMP_URL_END
-        response = requests.get(url)
-        if response:
-            page = bandPage(response.content)
+def scrape_album(album_ext):
+    url = BASE_URL + album_ext
+    response = requests.get(url)
+    if response:
+        album = albumPage(response.content)
+        print(album.artist)
 
-            for item in page.items:
-                writer.writerow([item])
 
-        else:
-            print('Could not find that band, sorry.')
+
+def scrape_index():
+    url = BASE_URL + '/music'
+    response = requests.get(url)
+    if response:
+        page = bandPage(response.content)
+
+        for album_ext in page.albums:
+            scrape_album(album_ext)
+
+
+    else:
+        print('Could not find that band, sorry.')
 
 
 
@@ -32,4 +40,6 @@ if __name__ == '__main__':
         sys.exit()
 
     band = str(sys.argv[1])
-    scrape_album(band=band)
+    global BASE_URL
+    BASE_URL = 'https://' + band + '.bandcamp.com'
+    scrape_index()
