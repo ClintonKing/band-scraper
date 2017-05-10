@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 
+#structure for bandpage object
 class bandPage:
     def __init__(self, html):
         self._html = html

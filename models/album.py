@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 
+#structure for album object
 class albumPage:
     def __init__(self, html):
         self._html = html
@@ -30,6 +31,7 @@ class albumPage:
         release_date = self._soup.find(attrs={"itemprop": "datePublished"})
         return release_date['content']
 
+#structure for song object in album
 class songItem:
     def __init__(self, row):
         self._row = row

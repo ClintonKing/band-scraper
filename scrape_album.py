@@ -4,10 +4,11 @@ import sys
 import requests
 import unicodecsv as csv
 
+#import models
 from models.band import bandPage
 from models.album import albumPage
 
-
+#use generated urls for album pages to scrape album and song info
 def scrape_album(album_ext):
     url = BASE_URL + album_ext
     response = requests.get(url)
@@ -16,7 +17,7 @@ def scrape_album(album_ext):
         print(album.artist)
 
 
-
+#scrape band's page for urls to individual album pages
 def scrape_index():
     url = BASE_URL + '/music'
     response = requests.get(url)
@@ -33,7 +34,7 @@ def scrape_index():
 
 
 
-
+#runs app when provided band name
 if __name__ == '__main__':
     if len(sys.argv) == 1:
         print('band name required')
