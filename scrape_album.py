@@ -34,7 +34,7 @@ def scrape_albums(page):
 
 #scrape band's page for urls to individual album pages
 def scrape_index():
-    url = BAND_URL
+    url = BAND_URL + '/music'
     try:
         response = requests.get(url)
         page = bandPage(response.content)
