@@ -45,6 +45,8 @@ def scrape_index(band_url):
         response = requests.get(url)
         if response:
             page = bandPage(response.content)
+            if page.albums == []:
+                page.albums = ['/releases']
             scrape_albums(page, band_url)
         else:
             flash('Sorry, that url does not seem to exist.')
@@ -57,11 +59,11 @@ def scrape_index(band_url):
 
 
 
-# runs app when provided bandcamp url
-if __name__ == '__main__':
-    if len(sys.argv) == 1:
-        print('bandcamp url required')
-        sys.exit()
-
-    band_url = str(sys.argv[1])
-    scrape_index(band_url)
+# # runs app when provided bandcamp url
+# if __name__ == '__main__':
+#     if len(sys.argv) == 1:
+#         print('bandcamp url required')
+#         sys.exit()
+#
+#     band_url = str(sys.argv[1])
+#     scrape_index(band_url)
