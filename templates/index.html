@@ -8,8 +8,10 @@
   <div class="container">
     <div class="row">
       <div class="col-12-md">
-        <form name="url_form" action="test.py" method="get">
-          <input type="text" name="url">
+        <h1>ENTER BANDCAMP URL</h1>
+        <form name="url_form" action="" method="post">
+          {{ form.hidden_tag() }}
+          {{ form.url_field(size=100) }}
           <input type="submit" value="Submit">
         </form>
       </div>
