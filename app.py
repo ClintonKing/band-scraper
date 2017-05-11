@@ -10,7 +10,6 @@ app.config.from_object('config')
 def index():
     form = url_form()
     if form.validate_on_submit():
-        flash('Understood: %s' % (form.url_field.data))
         scrape_index(form.url_field.data)
         return redirect('/')
     return render_template('index.html', form=form)

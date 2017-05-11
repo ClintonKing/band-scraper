@@ -4,6 +4,7 @@ import sys
 import requests
 import unicodecsv as csv
 import json
+from flask import flash
 
 #import models
 from models.band import bandPage
@@ -28,7 +29,7 @@ def scrape_albums(page, band_url):
             json.dump(all_albums, albumJSON, indent=4, sort_keys=True)
             print('Done!')
         except:
-            print('Something went wrong...')
+            flash('Something went wrong...')
 
 
 
@@ -40,7 +41,7 @@ def scrape_index(band_url):
         page = bandPage(response.content)
         scrape_albums(page, band_url)
     except requests.exceptions.MissingSchema:
-        print('Sorry, that url does not seem to exist.')
+        flash('Sorry, that url does not seem to exist.')
 
 
 
