@@ -10,11 +10,11 @@ from models.band import bandPage
 from models.album import albumPage
 
 #use generated urls for album pages to scrape album and song info
-def scrape_albums(page):
+def scrape_albums(page, band_url):
     with open('cache/albums.json', 'wb') as albumJSON:
         all_albums = []
         for album_ext in page.albums:
-            url = BAND_URL + album_ext
+            url = band_url + album_ext
             response = requests.get(url)
             if response:
                 album = albumPage(response.content)
@@ -33,12 +33,12 @@ def scrape_albums(page):
 
 
 #scrape band's page for urls to individual album pages
-def scrape_index():
-    url = BAND_URL + '/music'
+def scrape_index(band_url):
+    url = band_url + '/music'
     try:
         response = requests.get(url)
         page = bandPage(response.content)
-        scrape_albums(page)
+        scrape_albums(page, band_url)
     except requests.exceptions.MissingSchema:
         print('Sorry, that url does not seem to exist.')
 
@@ -52,6 +52,5 @@ if __name__ == '__main__':
         print('bandcamp url required')
         sys.exit()
 
-    global BAND_URL
-    BAND_URL = str(sys.argv[1])
-    scrape_index()
+    band_url = str(sys.argv[1])
+    scrape_index(band_url)
