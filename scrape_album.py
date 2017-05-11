@@ -3,6 +3,7 @@
 import sys
 import requests
 import unicodecsv as csv
+import json
 
 #import models
 from models.band import bandPage
@@ -10,15 +11,24 @@ from models.album import albumPage
 
 #use generated urls for album pages to scrape album and song info
 def scrape_albums(page):
-    all_albums = []
-    for album_ext in page.albums:
-        url = BAND_URL + album_ext
-        response = requests.get(url)
-        if response:
-            album = albumPage(response.content)
-            all_albums.append(album)
-    for album in all_albums:
-        print(album.title)
+    with open('cache/albums.json', 'wb') as albumJSON:
+        all_albums = []
+        for album_ext in page.albums:
+            url = BAND_URL + album_ext
+            response = requests.get(url)
+            if response:
+                album = albumPage(response.content)
+                songs = []
+                for song in album.songs:
+                    song_dict = {'songTitle': song.title, 'length': song.length}
+                    songs.append(song_dict)
+                album_dict = {'albumTitle': album.title, 'release': album.release, 'artistName': album.artist, 'songs': songs}
+                all_albums.append(album_dict)
+        try:
+            json.dump(all_albums, albumJSON, indent=4, sort_keys=True)
+            print('Done!')
+        except:
+            print('Something went wrong...')
 
 
 
