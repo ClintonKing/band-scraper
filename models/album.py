@@ -12,7 +12,8 @@ class albumPage:
         song_list = self._soup.find_all('tr', class_='track_row_view')
         for row in song_list:
             song = songItem(row)
-            self.songs.append(song)
+            if song.length:
+                self.songs.append(song)
 
     @property
     def title(self):
