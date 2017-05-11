@@ -4,7 +4,7 @@ import sys
 import requests
 import unicodecsv as csv
 import json
-from flask import flash
+from flask import flash, redirect
 
 #import models
 from models.band import bandPage
@@ -27,31 +27,41 @@ def scrape_albums(page, band_url):
                 all_albums.append(album_dict)
         try:
             json.dump(all_albums, albumJSON, indent=4, sort_keys=True)
-            print('Done!')
+            flash('Done!')
+            return redirect('/')
         except:
             flash('Something went wrong...')
+            return redirect('/')
 
 
 
 #scrape band's page for urls to individual album pages
 def scrape_index(band_url):
-    url = band_url + '/music'
+    if band_url.endswith('/'):
+        url = band_url + 'music'
+    else:
+        url = band_url + '/music'
     try:
         response = requests.get(url)
-        page = bandPage(response.content)
-        scrape_albums(page, band_url)
+        if response:
+            page = bandPage(response.content)
+            scrape_albums(page, band_url)
+        else:
+            flash('Sorry, that url does not seem to exist.')
+            return redirect('/')
     except requests.exceptions.MissingSchema:
         flash('Sorry, that url does not seem to exist.')
+        return redirect('/')
 
 
 
 
 
-#runs app when provided bandcamp url
-# if __name__ == '__main__':
-#     if len(sys.argv) == 1:
-#         print('bandcamp url required')
-#         sys.exit()
-#
-#     band_url = str(sys.argv[1])
-#     scrape_index(band_url)
+# runs app when provided bandcamp url
+if __name__ == '__main__':
+    if len(sys.argv) == 1:
+        print('bandcamp url required')
+        sys.exit()
+
+    band_url = str(sys.argv[1])
+    scrape_index(band_url)
