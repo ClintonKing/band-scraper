@@ -2,7 +2,10 @@
 <html>
 <head>
   <title>{{ title }}</title>
-
+  {% block styles %}
+  {% endblock %}
+  {% block scripts %}
+  {% endblock %}
 </head>
 <body>
   {% with messages = get_flashed_messages() %}
@@ -14,7 +17,11 @@
         </ul>
       {% endif %}
   {% endwith %}
+  <div class="container-fluid">
   {% block content %}
-  {% endblock%}
+  {% endblock %}
+  </div>
+  {% block latescript %}
+  {% endblock %}
 </body>
 </html>

@@ -1,7 +1,7 @@
 import sys
 from scrape_album import *
 from flask import Flask, make_response, render_template, flash, redirect
-from forms import url_form
+from models.forms import url_form
 
 app = Flask(__name__)
 app.config.from_object('config')
@@ -12,6 +12,7 @@ def index():
     form = url_form()
     if form.validate_on_submit():
         scrape_index(form.url_field.data)
+        return redirect('/stats')
     return render_template('index.html', title=title, form=form)
 
 @app.route('/stats')

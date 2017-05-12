@@ -12,7 +12,7 @@ from models.album import albumPage
 
 #use generated urls for album pages to scrape album and song info
 def scrape_albums(page, band_url):
-    with open('cache/albums.json', 'wb') as albumJSON:
+    with open('static/json/albums.json', 'wb') as albumJSON:
         all_albums = []
         for album_ext in page.albums:
             url = band_url + album_ext
@@ -27,8 +27,7 @@ def scrape_albums(page, band_url):
                 all_albums.append(album_dict)
         try:
             json.dump(all_albums, albumJSON, indent=4, sort_keys=True)
-            flash('Done!')
-            return redirect('/')
+
         except:
             flash('Something went wrong...')
             return redirect('/')
