@@ -21,7 +21,7 @@ def scrape_albums(page, band_url):
                 album = albumPage(response.content)
                 songs = []
                 for song in album.songs:
-                    song_dict = {'songTitle': song.title, 'length': song.length}
+                    song_dict = {'songTitle': song.title, 'songLength': song.length}
                     songs.append(song_dict)
                 album_dict = {'albumTitle': album.title, 'release': album.release, 'artistName': album.artist, 'songs': songs}
                 all_albums.append(album_dict)

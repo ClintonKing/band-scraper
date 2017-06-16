@@ -1,31 +1,25 @@
 //Start with selecting the body and creating svg and axes
-var graphDiv = d3.select('div.chartOne');
+var graphOne = d3.select('div.graphOne');
 
 //Set variables for height and width of svg
-var width = parseInt(d3.select('div.chartOne').style("width"));
+var width = parseInt(d3.select('div.graphOne').style("width"));
 var height = 400;
 
 //Create SVG
-var svg = graphDiv.append('svg')
+var svg = graphOne.append('svg')
   .attr("width", width)
   .attr("height", height);
-
-// var x = d3.time.scale()
-//   .domain([new Date('2009'),new Date('2016')])
-//   .range([0, width]);
-
 
 //Variables for number of albums within each year.
 var allYears = [];
 var yearSpan = [];
 var countArray = [];
 var counts = [];
+let maxInYear = 0;
 
 //Now let's call our data
 d3.json('static/json/albums.json', function(err,data){
   if (err) throw error;
-  //Check to see if our data is coming in
-  console.log(data);
 
   //Here's where we actually count the albums in each year for the vars above.
   for(var i = 0; i < data.length; ++i){
@@ -56,6 +50,9 @@ d3.json('static/json/albums.json', function(err,data){
   for(var i = 0; i < yearSpan.length; i++){
     var yearValue = yearSpan[i];
     var countValue = countArray[i];
+    if (countValue > maxInYear){
+      maxInYear = countValue;
+    };
 
     item = {};
     item ["year"] = yearValue;
@@ -67,26 +64,31 @@ d3.json('static/json/albums.json', function(err,data){
   //Let's see if those final counts look right...
   console.log(counts);
 
-  var x = d3.scale.ordinal()
+  function round5(x){
+    return Math.ceil(x/5)*5;
+  };
+
+  var x = d3.scaleBand()
     .domain(counts.map(function(d){return d.year}))
-    .rangeRoundBands([0, width], 0.4);
+    .rangeRound([0, width])
+    .padding(0.4);
 
   //Time to make some axes
-  var y = d3.scale.linear()
-    .domain([0, 30])
+  var y = d3.scaleLinear()
+    .domain([0, round5(maxInYear)])
     .range([0, height]);
 
-  var yInv = d3.scale.linear()
-    .domain([30, 0])
+  var yInv = d3.scaleLinear()
+    .domain([round5(maxInYear), 0])
     .range([0, height]);
 
-  var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient('bottom');
+  var xAxis = d3.axisBottom()
+    .scale(x);
 
-  var yAxis = d3.svg.axis()
+  var yAxis = d3.axisLeft()
     .scale(yInv)
-    .orient('left');
+    .ticks(5)
+    .tickSize(10);
 
   //Add and position the xAxis
   svg.append('g')
@@ -111,7 +113,7 @@ d3.json('static/json/albums.json', function(err,data){
     .attr("x", function(d){return x(d.year)})
     .attr("y", function(d){return height - y(d.albums)})
     .attr("height", function(d){return y(d.albums)})
-    .attr("width", x.rangeBand())
+    .attr("width", x.bandwidth())
     .attr("class", "shape yearBar")
     .attr("id", function(d){return d.year});
 
@@ -122,7 +124,7 @@ d3.json('static/json/albums.json', function(err,data){
         .append("text");
 
      yearBarText
-      .attr("x", function(d){return x(d.year) + (x.rangeBand()/2)}) //Needs extra padding of half the bar width to center text
+      .attr("x", function(d){return x(d.year) + (x.bandwidth()/2)}) //Needs extra padding of half the bar width to center text
       .attr("y", function(d){return height -y(d.albums) - 10}) //-10 to float
       .attr("text-anchor", "middle")
       .attr("class", "barText")

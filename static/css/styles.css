@@ -32,7 +32,7 @@ body{
 
 svg{
   margin: 0;
-  padding: 40px;
+  padding-top: 30px;
   -webkit-box-sizing: content-box;
 }
 
@@ -45,7 +45,11 @@ svg{
 .axis .tick text{
   fill: #fff;
   font-family: markerNumbers;
-  font-size: 1.3em;
+  font-size: 1.8em;
+}
+
+.axis .tick line{
+  display: none;
 }
 
 .yearBar{
@@ -63,4 +67,13 @@ svg{
   fill: #fff !important;
   font-size: 1.3em !important;
   font-family: markerNumbers !important;
+}
+
+.bubbleText{
+  display: none;
+  text-align: center;
+  fill: #fff !important;
+  font-size: 1.8em !important;
+  font-family: markerNumbers !important;
+  pointer-events: none;
 }
