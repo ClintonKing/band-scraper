@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+{% block scripts %}
+  <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+  <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-12">
+      <h1 id="title"></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 col-xs-10 col-md-offset-1 graphOne">
+      <h2 class="chartTitle">Releases By Year</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 col-xs-10 col-md-offset-1 graphTwo">
+      <h2 class="chartTitle">Songs by Length</h2>
+    </div>
+  </div>
+{% endblock %}
+{% block latescript %}
+  <!-- <script type="text/javascript" src="{{ url_for('static', filename='js/graphOne.js') }}"></script> -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/graphTwo.js') }}"></script>
+{% endblock %}
