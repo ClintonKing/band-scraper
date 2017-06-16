@@ -15,3 +15,15 @@ class bandPage:
             if album_ext:
                 href = album_ext.get('href')
                 self.albums.append(href)
+
+class searchPage:
+    def __init__(self, html):
+        self._html = html
+        self._soup = BeautifulSoup(self._html, 'html.parser')
+        self._parse()
+
+    def _parse(self):
+        band_result = self._soup.find('li', class_='searchresult band')
+        result_info = band_result.find('div', class_='result-info')
+        item_url = result_info.find('div', class_='itemurl')
+        self.url = item_url.find('a').get_text()

@@ -94,7 +94,7 @@ d3.json('static/json/albums.json', function(err,data){
     .data(pack(root).leaves())
     .enter().append("g")
       .attr("class", "node")
-      .attr("transform", function(d) { return "translate(" + d.x + "," + (d.y + 20) + ")"; });
+      .attr("transform", function(d) { return "translate(" + d.x + "," + (d.y - 10) + ")"; });
 
   node.append("circle")
     .attr("id", function(d) { return d.id; })
@@ -105,7 +105,7 @@ d3.json('static/json/albums.json', function(err,data){
 
   node.append("text")
     .attr("x", function(d){return 0 - d.x + width/2 - 10})
-    .attr("y", function(d){return 0 - d.y - 20})
+    .attr("y", function(d){return 0 - d.y + 10})
     .attr("text-anchor", "middle")
     .attr("class", "bubbleText")
     .attr("id", function(d){return "text" + d.id;})

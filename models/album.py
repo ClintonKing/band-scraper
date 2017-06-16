@@ -32,6 +32,13 @@ class albumPage:
         release_date = self._soup.find(attrs={"itemprop": "datePublished"})
         return release_date['content']
 
+    # RETURNS SPAN WITH NO INNER HTML, DESPIT CONTENT BEING VISIBLE ON PAGE????
+    # @property
+    # def titleTrackLength(self):
+    #     time_span = self._soup.find(attrs={'class':'time_total'})
+    #     print time_span
+    #     return time_span
+
 
 #structure for song object in album
 class songItem:

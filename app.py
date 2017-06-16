@@ -11,7 +11,7 @@ def index():
     title = 'Bandcamp Scraper'
     form = url_form()
     if form.validate_on_submit():
-        scrape_index(form.url_field.data)
+        scrape_search(form.url_field.data)
         return redirect('/stats')
     return render_template('index.html', title=title, form=form)
 

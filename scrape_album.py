@@ -7,7 +7,7 @@ import json
 from flask import flash, redirect
 
 #import models
-from models.band import bandPage
+from models.band import bandPage, searchPage
 from models.album import albumPage
 
 #use generated urls for album pages to scrape album and song info
@@ -20,9 +20,13 @@ def scrape_albums(page, band_url):
             if response:
                 album = albumPage(response.content)
                 songs = []
-                for song in album.songs:
-                    song_dict = {'songTitle': song.title, 'songLength': song.length}
+                if album.songs == []:
+                    song_dict = {'songTitle': album.title, 'songLength': '0:00'}
                     songs.append(song_dict)
+                else:
+                    for song in album.songs:
+                        song_dict = {'songTitle': song.title, 'songLength': song.length}
+                        songs.append(song_dict)
                 album_dict = {'albumTitle': album.title, 'release': album.release, 'artistName': album.artist, 'songs': songs}
                 all_albums.append(album_dict)
         try:
@@ -30,7 +34,6 @@ def scrape_albums(page, band_url):
 
         except:
             flash('Something went wrong...')
-            return redirect('/')
 
 
 
@@ -49,10 +52,23 @@ def scrape_index(band_url):
             scrape_albums(page, band_url)
         else:
             flash('Sorry, that url does not seem to exist.')
-            return redirect('/')
+
     except requests.exceptions.MissingSchema:
         flash('Sorry, that url does not seem to exist.')
-        return redirect('/')
+
+def scrape_search(qTerm):
+    search_url = 'https://bandcamp.com/search?q=' + qTerm
+    try:
+        response = requests.get(search_url)
+        result = searchPage(response.content)
+        if result.url:
+            scrape_index(result.url)
+        else:
+            flash ('Sorry, could not find a band by that name.')
+
+    except:
+        flash('Sorry, something went wrong.')
+
 
 
 
