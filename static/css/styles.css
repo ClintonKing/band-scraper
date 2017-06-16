@@ -77,3 +77,149 @@ svg{
   font-family: markerNumbers !important;
   pointer-events: none;
 }
+
+
+/*INDEX STYLES*/
+
+.intro{
+  font-family: markerFont;
+  color: #fff;
+  text-align: center;
+  font-size: 2em;
+}
+
+#searchForm{
+  margin: 0 auto;
+  font-family: markerFont;
+}
+
+#submitBtn{
+  display: none;
+}
+
+#url_field,
+#url_field:focus{
+  border-radius: 20px;
+  border: 4px solid #eee;
+  padding: 10px 15px;
+  font-size: 1.6em;
+  margin: 30px auto;
+  max-width: 550px;
+  box-shadow: none;
+  display: block;
+  outline: none;
+}
+
+/*LOADER*/
+
+#loader{
+  display:none;
+	max-width:550px;
+	margin:0 auto;
+  text-align: center;
+  color: #fff;
+  font-family: markerFont;
+  font-size: 4em;
+}
+
+.fader{
+	font-family: markerFont;
+	text-decoration:none;
+	font-weight:normal;
+	font-style:normal;
+	animation-name:bounce_inTurnFadingTextG;
+		-o-animation-name:bounce_inTurnFadingTextG;
+		-ms-animation-name:bounce_inTurnFadingTextG;
+		-webkit-animation-name:bounce_inTurnFadingTextG;
+		-moz-animation-name:bounce_inTurnFadingTextG;
+	animation-duration:2s;
+		-o-animation-duration:2s;
+		-ms-animation-duration:2s;
+		-webkit-animation-duration:2s;
+		-moz-animation-duration:2s;
+	animation-iteration-count:infinite;
+		-o-animation-iteration-count:infinite;
+		-ms-animation-iteration-count:infinite;
+		-webkit-animation-iteration-count:infinite;
+		-moz-animation-iteration-count:infinite;
+	animation-direction:normal;
+		-o-animation-direction:normal;
+		-ms-animation-direction:normal;
+		-webkit-animation-direction:normal;
+		-moz-animation-direction:normal;
+}
+
+.fade1{
+	animation-delay:0.66s;
+		-o-animation-delay:0.66s;
+		-ms-animation-delay:0.66s;
+		-webkit-animation-delay:0.66s;
+		-moz-animation-delay:0.66s;
+}
+.fade2{
+	animation-delay:1.33s;
+		-o-animation-delay:1.33s;
+		-ms-animation-delay:1.33s;
+		-webkit-animation-delay:1.33s;
+		-moz-animation-delay:1.33s;
+}
+.fade3{
+	animation-delay:2s;
+		-o-animation-delay:2s;
+		-ms-animation-delay:2s;
+		-webkit-animation-delay:2s;
+		-moz-animation-delay:2s;
+}
+
+
+
+
+@keyframes bounce_inTurnFadingTextG{
+	0%{
+		color:#fff;
+	}
+
+	100%{
+		color:#FFD4DA;
+	}
+}
+
+@-o-keyframes bounce_inTurnFadingTextG{
+	0%{
+		color:#fff;
+	}
+
+	100%{
+		color:#FFD4DA);
+	}
+}
+
+@-ms-keyframes bounce_inTurnFadingTextG{
+	0%{
+		color:#fff;
+	}
+
+	100%{
+		color:#FFD4DA;
+	}
+}
+
+@-webkit-keyframes bounce_inTurnFadingTextG{
+	0%{
+		color:#fff;
+	}
+
+	100%{
+		color:#FFD4DA;
+	}
+}
+
+@-moz-keyframes bounce_inTurnFadingTextG{
+	0%{
+		color:#fff;
+	}
+
+	100%{
+		color:#FFD4DA;
+	}
+}

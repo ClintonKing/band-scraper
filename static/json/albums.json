@@ -1,161 +1,261 @@
 [
     {
-        "albumTitle": "Everybody Works", 
-        "artistName": "Jay Som", 
-        "release": "20170310", 
+        "albumTitle": "Soft Spots", 
+        "artistName": "adult mom", 
+        "release": "20170519", 
         "songs": [
             {
-                "songLength": "01:51", 
-                "songTitle": "Lipstick Stains"
+                "songLength": "02:15", 
+                "songTitle": "Ephemeralness"
             }, 
             {
-                "songLength": "03:36", 
-                "songTitle": "The Bus Song"
+                "songLength": "02:37", 
+                "songTitle": "Full Screen"
             }, 
             {
-                "songLength": "02:19", 
-                "songTitle": "Remain"
+                "songLength": "02:32", 
+                "songTitle": "J Station"
             }, 
             {
-                "songLength": "02:44", 
-                "songTitle": "1 Billion Dogs"
+                "songLength": "03:50", 
+                "songTitle": "Patience"
             }, 
             {
-                "songLength": "03:42", 
-                "songTitle": "One More Time, Please"
+                "songLength": "02:11", 
+                "songTitle": "Tenderness"
             }, 
             {
-                "songLength": "03:45", 
-                "songTitle": "Baybee"
+                "songLength": "03:16", 
+                "songTitle": "Same"
             }, 
             {
-                "songLength": "03:25", 
-                "songTitle": "(BedHead)"
+                "songLength": "03:04", 
+                "songTitle": "Steal The Lake From The Water"
             }, 
             {
-                "songLength": "03:19", 
-                "songTitle": "Take It"
+                "songLength": "03:11", 
+                "songTitle": "Drive Me Home"
             }, 
             {
-                "songLength": "03:28", 
-                "songTitle": "Everybody Works"
-            }, 
-            {
-                "songLength": "07:22", 
-                "songTitle": "For Light"
+                "songLength": "02:55", 
+                "songTitle": "First Day of Spring"
             }
         ]
     }, 
     {
-        "albumTitle": "Turn Into", 
-        "artistName": "Jay Som", 
-        "release": "20160722", 
+        "albumTitle": "Momentary Lapse of Happily", 
+        "artistName": "adult mom", 
+        "release": "20150731", 
         "songs": [
             {
-                "songLength": "03:13", 
-                "songTitle": "Peach Boy"
+                "songLength": "02:10", 
+                "songTitle": "Be Your Own 3am"
+            }, 
+            {
+                "songLength": "02:49", 
+                "songTitle": "Survival"
+            }, 
+            {
+                "songLength": "03:05", 
+                "songTitle": "2012"
+            }, 
+            {
+                "songLength": "02:35", 
+                "songTitle": "Told Ya So"
+            }, 
+            {
+                "songLength": "02:21", 
+                "songTitle": "Sorry I Was Sorry"
+            }, 
+            {
+                "songLength": "01:44", 
+                "songTitle": "Sun Theory"
+            }, 
+            {
+                "songLength": "01:56", 
+                "songTitle": "What's Another Lipstick Mark"
+            }, 
+            {
+                "songLength": "02:06", 
+                "songTitle": "Sincerely Yours, Truly"
+            }, 
+            {
+                "songLength": "02:03", 
+                "songTitle": "Laying On My Floor"
+            }, 
+            {
+                "songLength": "02:24", 
+                "songTitle": "Meg Ryan"
+            }, 
+            {
+                "songLength": "02:49", 
+                "songTitle": "Wake"
+            }, 
+            {
+                "songLength": "02:51", 
+                "songTitle": "When You Are Happy"
+            }, 
+            {
+                "songLength": "02:20", 
+                "songTitle": "Lose/Recover"
+            }
+        ]
+    }, 
+    {
+        "albumTitle": "Sometimes Bad Happens", 
+        "artistName": "adult mom", 
+        "release": "20140722", 
+        "songs": [
+            {
+                "songLength": "01:37", 
+                "songTitle": "I Think I'm Old Enough"
+            }, 
+            {
+                "songLength": "02:40", 
+                "songTitle": "Ode To One Night Stands"
+            }, 
+            {
+                "songLength": "01:10", 
+                "songTitle": "Paws"
+            }, 
+            {
+                "songLength": "01:49", 
+                "songTitle": "Route '59"
+            }, 
+            {
+                "songLength": "02:08", 
+                "songTitle": "I Make Boys Cry"
+            }, 
+            {
+                "songLength": "01:07", 
+                "songTitle": "Theme Song"
+            }
+        ]
+    }, 
+    {
+        "albumTitle": "SPLIT", 
+        "artistName": "adult mom", 
+        "release": "20140725", 
+        "songs": [
+            {
+                "songLength": "02:30", 
+                "songTitle": "sincerely yours, later"
+            }, 
+            {
+                "songLength": "02:00", 
+                "songTitle": "the saga continues"
+            }, 
+            {
+                "songLength": "04:00", 
+                "songTitle": "absent year (cover)"
+            }, 
+            {
+                "songLength": "02:39", 
+                "songTitle": "when you are happy"
+            }
+        ]
+    }, 
+    {
+        "albumTitle": "i fell in love by accident", 
+        "artistName": "adult mom", 
+        "release": "20130807", 
+        "songs": [
+            {
+                "songLength": "02:16", 
+                "songTitle": "what's another lipstick mark"
+            }, 
+            {
+                "songLength": "01:02", 
+                "songTitle": "fiji"
+            }, 
+            {
+                "songLength": "02:13", 
+                "songTitle": "uncle lou"
+            }, 
+            {
+                "songLength": "01:27", 
+                "songTitle": "library"
+            }, 
+            {
+                "songLength": "01:02", 
+                "songTitle": "theme song"
+            }, 
+            {
+                "songLength": "01:36", 
+                "songTitle": "dancer feet"
+            }, 
+            {
+                "songLength": "00:49", 
+                "songTitle": "c train"
+            }, 
+            {
+                "songLength": "01:41", 
+                "songTitle": "dam"
+            }
+        ]
+    }, 
+    {
+        "albumTitle": "mom's day", 
+        "artistName": "adult mom", 
+        "release": "20130512", 
+        "songs": [
+            {
+                "songLength": "01:57", 
+                "songTitle": "uncle lou"
+            }, 
+            {
+                "songLength": "02:47", 
+                "songTitle": "dee"
+            }, 
+            {
+                "songLength": "00:59", 
+                "songTitle": "what's his name?"
+            }
+        ]
+    }, 
+    {
+        "albumTitle": "bstmommy", 
+        "artistName": "adult mom", 
+        "release": "20130326", 
+        "songs": [
+            {
+                "songLength": "00:32", 
+                "songTitle": "window, wall (i'm 13 and i just got rejected)"
+            }, 
+            {
+                "songLength": "01:38", 
+                "songTitle": "sloppy joes"
+            }, 
+            {
+                "songLength": "01:15", 
+                "songTitle": "paws"
+            }, 
+            {
+                "songLength": "02:06", 
+                "songTitle": "kiss/love/flat"
+            }, 
+            {
+                "songLength": "02:37", 
+                "songTitle": "to my friends"
+            }
+        ]
+    }, 
+    {
+        "albumTitle": "bedroom recordings", 
+        "artistName": "adult mom", 
+        "release": "20121224", 
+        "songs": [
+            {
+                "songLength": "01:32", 
+                "songTitle": "girl scout honor"
+            }, 
+            {
+                "songLength": "02:22", 
+                "songTitle": "splitting my ends"
             }, 
             {
                 "songLength": "03:07", 
-                "songTitle": "Ghost"
-            }, 
-            {
-                "songLength": "03:38", 
-                "songTitle": "Next To Me"
-            }, 
-            {
-                "songLength": "02:52", 
-                "songTitle": "Drown"
-            }, 
-            {
-                "songLength": "03:55", 
-                "songTitle": "Our Red Door"
-            }, 
-            {
-                "songLength": "04:05", 
-                "songTitle": "Unlimited Touch"
-            }, 
-            {
-                "songLength": "04:40", 
-                "songTitle": "Why I Say No"
-            }, 
-            {
-                "songLength": "04:01", 
-                "songTitle": "SLOW"
-            }, 
-            {
-                "songLength": "03:23", 
-                "songTitle": "Turn Into"
-            }
-        ]
-    }, 
-    {
-        "albumTitle": "I Think You're Alright / Rush", 
-        "artistName": "Jay Som", 
-        "release": "20160624", 
-        "songs": [
-            {
-                "songLength": "03:46", 
-                "songTitle": "I Think You're Alright"
-            }, 
-            {
-                "songLength": "03:39", 
-                "songTitle": "Rush"
-            }
-        ]
-    }, 
-    {
-        "albumTitle": "forget about it kid", 
-        "artistName": "Jay Som", 
-        "release": "20140904", 
-        "songs": [
-            {
-                "songLength": "0:00", 
-                "songTitle": "forget about it kid"
-            }
-        ]
-    }, 
-    {
-        "albumTitle": "Dive Deep", 
-        "artistName": "Jay Som", 
-        "release": "20131214", 
-        "songs": [
-            {
-                "songLength": "0:00", 
-                "songTitle": "Dive Deep"
-            }
-        ]
-    }, 
-    {
-        "albumTitle": "Pavement", 
-        "artistName": "Jay Som", 
-        "release": "20131102", 
-        "songs": [
-            {
-                "songLength": "0:00", 
-                "songTitle": "Pavement"
-            }
-        ]
-    }, 
-    {
-        "albumTitle": "Finding What You're Looking For in the Closet", 
-        "artistName": "Jay Som", 
-        "release": "20120815", 
-        "songs": [
-            {
-                "songLength": "0:00", 
-                "songTitle": "Finding What You're Looking For in the Closet"
-            }
-        ]
-    }, 
-    {
-        "albumTitle": "See You, Later", 
-        "artistName": "Jay Som", 
-        "release": "20120106", 
-        "songs": [
-            {
-                "songLength": "0:00", 
-                "songTitle": "See You, Later"
+                "songTitle": "slept/laughed"
             }
         ]
     }

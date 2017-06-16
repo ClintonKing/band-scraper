@@ -1,15 +1,24 @@
 {% extends 'base.html' %}
-
+{% block scripts %}
+  <script type="text/javascript">
+    function activateLoad(){
+      document.getElementById("searchForm").style.display = "none";
+      document.getElementById("loader").style.display = "block";
+    }
+  </script>
+{% endblock %}
 
 {% block content %}
     <div class="row">
       <div class="col-12-md">
-        <h1>ENTER BANDCAMP URL</h1>
-        <form name="url_form" action="" method="post">
+        <h1 id="title">BANDCAMP DISCOGRAPHY VISUALIZER</h1>
+        <h4 class="intro">Enter the name of your favorite indie band below, and we'll generate some data visualizations for you based on their discography!</h4>
+        <form name="url_form" action="" method="post" id="searchForm" onsubmit="activateLoad()">
           {{ form.hidden_tag() }}
           {{ form.url_field(size=100) }}
-          <input type="submit" value="Submit">
+          <input id="submitBtn" type="submit" value="Submit">
         </form>
+        <div id="loader">Visualizing<span class="fade1 fader">.</span><span class="fade2 fader">.</span><span class="fade3 fader">.</span></div>
       </div>
     </div>
 {% endblock %}
