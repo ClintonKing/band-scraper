@@ -11,6 +11,11 @@
   <div class="row">
     <div class="col-md-12">
       <h1 id="title"></h1>
+      <form name="search_again" action="" method="post" id="searchForm" onsubmit="activateLoad()">
+        {{ form.hidden_tag() }}
+        {{ form.search_field(size=100) }}
+        <input id="submitBtn" type="submit" value="Submit">
+      </form>
     </div>
   </div>
   <div class="row">

@@ -1,24 +1,28 @@
 import sys
 from scrape_album import *
 from flask import Flask, make_response, render_template, flash, redirect
-from models.forms import url_form
+from models.forms import search_form, search_again
 
 app = Flask(__name__)
 app.config.from_object('config')
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    title = 'Bandcamp Scraper'
-    form = url_form()
+    title = 'Bandcamp Visualizer'
+    form = search_form()
     if form.validate_on_submit():
-        scrape_search(form.url_field.data)
+        scrape_search(form.search_field.data)
         return redirect('/stats')
     return render_template('index.html', title=title, form=form)
 
-@app.route('/stats')
+@app.route('/stats', methods=['GET', 'POST'])
 def stats():
     title = 'Stats Display'
-    return render_template('stats.html', title=title)
+    form = search_again()
+    if form.validate_on_submit():
+        scrape_search(form.search_field.data)
+        return redirect('/stats')
+    return render_template('stats.html', title=title, form=form)
 
 
 if __name__ == "__main__":

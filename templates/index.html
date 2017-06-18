@@ -13,9 +13,9 @@
       <div class="col-12-md">
         <h1 id="title">BANDCAMP DISCOGRAPHY VISUALIZER</h1>
         <h4 class="intro">Enter the name of your favorite indie band below, and we'll generate some data visualizations for you based on their discography!</h4>
-        <form name="url_form" action="" method="post" id="searchForm" onsubmit="activateLoad()">
+        <form name="search_form" action="" method="post" id="searchForm" onsubmit="activateLoad()">
           {{ form.hidden_tag() }}
-          {{ form.url_field(size=100) }}
+          {{ form.search_field(size=100) }}
           <input id="submitBtn" type="submit" value="Submit">
         </form>
         <div id="loader">Visualizing<span class="fade1 fader">.</span><span class="fade2 fader">.</span><span class="fade3 fader">.</span></div>
