@@ -19,17 +19,17 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-10 col-xs-10 col-md-offset-1 graphOne">
+    <div class="col-md-10 col-xs-10 col-md-offset-1 graphOneContainer">
       <h2 class="chartTitle">Releases By Year</h2>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-10 col-xs-10 col-md-offset-1 graphTwo">
+    <div class="col-md-10 col-xs-10 col-md-offset-1 graphTwoContainer">
       <h2 class="chartTitle">Songs by Length</h2>
     </div>
   </div>
 {% endblock %}
 {% block latescript %}
-  <!-- <script type="text/javascript" src="{{ url_for('static', filename='js/graphOne.js') }}"></script> -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/graphOne.js') }}"></script>
   <script type="text/javascript" src="{{ url_for('static', filename='js/graphTwo.js') }}"></script>
 {% endblock %}

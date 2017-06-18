@@ -1,24 +1,24 @@
 let bandName = '';
 
 //Start with selecting the body and creating svg and axes
-var graphTwo = d3.select('div.graphTwo');
 
 //Set variables for height and width of svg
-var width = parseInt(d3.select('div.graphTwo').style("width"));
-var height = 600;
+var graphTwoWidth = parseInt(d3.select("div.graphTwoContainer").style("width"));
+var graphTwoHeight = 600;
 
 //Create SVG
-var svg = graphTwo.append('svg')
-  .attr("width", width)
-  .attr("height", height);
+var graphTwo = d3.select("div.graphTwoContainer").append("svg")
+  .attr("class", "graphTwo")
+  .attr("width", graphTwoWidth)
+  .attr("height", graphTwoHeight);
 
 
 //Variables for number of albums within each year.
 var songs = [];
 
 function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
+    var letters = "0123456789ABCDEF";
+    var color = "#";
     for (var i = 0; i < 6; i++ ) {
         color += letters[Math.floor(Math.random() * 16)];
     }
@@ -27,7 +27,7 @@ function getRandomColor() {
 
 function convertToSeconds(orgLength) {
   var hms = orgLength;
-  var a = hms.split(':');
+  var a = hms.split(":");
 
   var seconds = (+a[0]) * 60 + (+a[1]);
   return seconds;
@@ -37,7 +37,7 @@ function convertToMinutes(length) {
   var minutes = Math.floor(length / 60);
   var seconds = length % 60;
   if(seconds < 10){
-    seconds = '0' + seconds;
+    seconds = "0" + seconds;
   };
   var output = minutes + ":" + seconds;
   return output;
@@ -78,7 +78,7 @@ d3.json('static/json/albums.json', function(err,data){
   var songData = {children: songs};
 
   var pack = d3.pack()
-    .size([width, height])
+    .size([graphTwoWidth, graphTwoHeight])
     .padding(1.5);
 
   var root = d3.hierarchy(songData)
@@ -90,7 +90,7 @@ d3.json('static/json/albums.json', function(err,data){
   });
   console.log(root);
 
-  var node = svg.selectAll(".node")
+  var node = graphTwo.selectAll(".node")
     .data(pack(root).leaves())
     .enter().append("g")
       .attr("class", "node")
@@ -104,7 +104,7 @@ d3.json('static/json/albums.json', function(err,data){
 
 
   node.append("text")
-    .attr("x", function(d){return 0 - d.x + width/2 - 10})
+    .attr("x", function(d){return 0 - d.x + graphTwoWidth/2 - 10})
     .attr("y", function(d){return 0 - d.y - 10})
     .attr("text-anchor", "middle")
     .attr("class", "bubbleText")

@@ -1,14 +1,14 @@
-//Start with selecting the body and creating svg and axes
-var graphOne = d3.select('div.graphOne');
+
 
 //Set variables for height and width of svg
-var width = parseInt(d3.select('div.graphOne').style("width"));
-var height = 400;
+var graphOneWidth = parseInt(d3.select("div.graphOneContainer").style("width"));
+var graphOneHeight = 400;
 
 //Create SVG
-var svg = graphOne.append('svg')
-  .attr("width", width)
-  .attr("height", height);
+var graphOne = d3.select("div.graphOneContainer").append("svg")
+  .attr("class", "graphOne")
+  .attr("width", graphOneWidth)
+  .attr("height", graphOneHeight);
 
 //Variables for number of albums within each year.
 var allYears = [];
@@ -70,17 +70,17 @@ d3.json('static/json/albums.json', function(err,data){
 
   var x = d3.scaleBand()
     .domain(counts.map(function(d){return d.year}))
-    .rangeRound([0, width])
+    .rangeRound([0, graphOneWidth])
     .padding(0.4);
 
   //Time to make some axes
   var y = d3.scaleLinear()
     .domain([0, round5(maxInYear)])
-    .range([0, height]);
+    .range([0, graphOneHeight]);
 
   var yInv = d3.scaleLinear()
     .domain([round5(maxInYear), 0])
-    .range([0, height]);
+    .range([0, graphOneHeight]);
 
   var xAxis = d3.axisBottom()
     .scale(x);
@@ -91,17 +91,17 @@ d3.json('static/json/albums.json', function(err,data){
     .tickSize(10);
 
   //Add and position the xAxis
-  svg.append('g')
+  graphOne.append('g')
     .attr('class', 'x axis')
-    .attr('transform', 'translate(0, ' + height + ')')
+    .attr('transform', 'translate(0, ' + graphOneHeight + ')')
     .call(xAxis);
   //Add and position the yAxis
-  svg.append('g')
+  graphOne.append('g')
     .attr('class', 'y axis')
     .call(yAxis);
 
   //Onto our bars
-  var yearGraph = svg.append("g");
+  var yearGraph = graphOne.append("g");
 
   var yearBars = yearGraph
     .selectAll("rect")
@@ -111,7 +111,7 @@ d3.json('static/json/albums.json', function(err,data){
 
   yearBars
     .attr("x", function(d){return x(d.year)})
-    .attr("y", function(d){return height - y(d.albums)})
+    .attr("y", function(d){return graphOneHeight - y(d.albums)})
     .attr("height", function(d){return y(d.albums)})
     .attr("width", x.bandwidth())
     .attr("class", "shape yearBar")
@@ -125,7 +125,7 @@ d3.json('static/json/albums.json', function(err,data){
 
      yearBarText
       .attr("x", function(d){return x(d.year) + (x.bandwidth()/2)}) //Needs extra padding of half the bar width to center text
-      .attr("y", function(d){return height -y(d.albums) - 10}) //-10 to float
+      .attr("y", function(d){return graphOneHeight -y(d.albums) - 10}) //-10 to float
       .attr("text-anchor", "middle")
       .attr("class", "barText")
       .attr("id", function(d){return "text" + d.year})
